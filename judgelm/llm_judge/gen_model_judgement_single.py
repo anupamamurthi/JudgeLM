@@ -105,7 +105,7 @@ def get_model_answers(
 
     for q_i, question in tqdm(enumerate(questions)):
         torch.manual_seed(q_i)
-        conv = conv_judge_single.copy() if references is None else conv_judge_single_w_reference.copy()
+        conv = conv_judge_single.copy(answer_num=None) if references is None else conv_judge_single_w_reference.copy(answer_num=None)
         template = conv.prompt_template
 
         # if fast eval, use the "\n" as the separator
