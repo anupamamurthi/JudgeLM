@@ -59,6 +59,18 @@ def run_eval(
     ans_handles = []
     print("start ans_handles append")
     for i in range(0, len(questions), chunk_size):
+        print(model_path,
+                model_id,
+                questions[i : i + chunk_size],
+                answer_file,
+                max_new_token,
+                num_gpus_per_model,
+                max_gpu_memory,
+                temperature,
+                if_reverse_answers,
+                references[i : i + chunk_size] if reference_file is not None else None,
+                if_fast_eval,
+                answer_num)
         ans_handles.append(
             get_answers_func(
                 model_path,
