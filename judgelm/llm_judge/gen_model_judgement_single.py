@@ -276,6 +276,6 @@ if __name__ == "__main__":
         args.if_fast_eval
     )
 
-    reorg_answer_file(args.answer_file + ".new")
+    reorg_answer_file(args.answer_file)
 
 

@@ -163,7 +163,7 @@ def get_model_answers(
 
         # Dump answers
         os.makedirs(os.path.dirname(answer_file), exist_ok=True)
-        with open(os.path.expanduser(answer_file + ".new"), "a") as fout:
+        with open(os.path.expanduser(answer_file), "a") as fout:
             ans_id = shortuuid.uuid()
             question["pred_id"] = ans_id
             question["pred_text"] = output
@@ -171,7 +171,10 @@ def get_model_answers(
             question["tstamp"] = time.time()
             if references is not None:
                 question["reference"] = references[q_i]['reference']['text']
-            fout.write(json.dumps(question) + "\n")
+            if q_i == 0:
+                fout.write("\n" + json.dumps(question) + "\n")
+            else:
+                fout.write(json.dumps(question) + "\n")
 
 
 
