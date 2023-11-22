@@ -92,6 +92,7 @@ def get_model_answers(
     references,
     if_fast_eval,
 ):
+    answer_file = answer_file + ".new"
     print("start load model")
     model, tokenizer = load_model(
         model_path,
@@ -163,7 +164,7 @@ def get_model_answers(
 
         # Dump answers
         os.makedirs(os.path.dirname(answer_file), exist_ok=True)
-        with open(os.path.expanduser(answer_file), "a") as fout:
+        with open(os.path.expanduser(answer_file), "w") as fout:
             ans_id = shortuuid.uuid()
             question["pred_id"] = ans_id
             question["pred_text"] = output
