@@ -46,6 +46,7 @@ def reorg_answer_file(answer_file):
     answers = {}
     with open(answer_file, "r") as fin:
         for l in fin:
+            print(l)
             qid = json.loads(l)["question_id"]
             answers[qid] = l
 
