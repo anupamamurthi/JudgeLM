@@ -163,7 +163,7 @@ def get_model_answers(
 
         # Dump answers
         os.makedirs(os.path.dirname(answer_file), exist_ok=True)
-        with open(os.path.expanduser(answer_file), "a") as fout:
+        with open(os.path.expanduser(answer_file + ".new"), "a") as fout:
             ans_id = shortuuid.uuid()
             question["pred_id"] = ans_id
             question["pred_text"] = output
