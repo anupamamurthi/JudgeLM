@@ -171,8 +171,7 @@ def get_model_answers(
             question["tstamp"] = time.time()
             if references is not None:
                 question["reference"] = references[q_i]['reference']['text']
-            if q_i == 0:
-                fout.write("\n")
+            
             fout.write(json.dumps(question) + "\n")
 
 
